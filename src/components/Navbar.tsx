@@ -17,39 +17,39 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-primary/95 backdrop-blur-md border-b border-white/10">
-      <div className="container grid grid-cols-3 items-center h-24">
-        
-        {/* LEFT: LOGO + NAME */}
-        <div className="flex items-center gap-3">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-primary/95 backdrop-blur-md">
+      <div className="container grid h-24 grid-cols-[auto_1fr_auto] items-center gap-8">
+        {/* LEFT: BRAND */}
+        <div className="flex items-center gap-4 pr-6">
           <img
             src={logo}
             alt="JB Logo"
-            className="h-12 w-12 object-contain"
+            className="h-11 w-11 shrink-0 object-contain"
           />
 
-          <div>
-            <p className="text-lg font-black uppercase tracking-wide text-white leading-none">
+          <div className="leading-tight">
+            <p className="font-heading text-base font-black uppercase tracking-wide text-primary-foreground xl:text-[17px]">
               JB Transportation & Towing
             </p>
-            <p className="text-[10px] tracking-[0.25em] text-gray-400 mt-1">
-              TRANSPORT • TOWING • COURIER
+            <p className="mt-1 text-[10px] uppercase tracking-[0.28em] text-silver">
+              Transport • Towing • Courier
             </p>
           </div>
         </div>
 
-        {/* CENTER: NAV (TRUE CENTER) */}
+        {/* CENTER: MENU */}
         <div className="hidden md:flex justify-center">
-          <nav className="flex gap-8">
+          <nav className="flex items-center gap-10">
             {navLinks.map((link) => {
-              const active = location.pathname === link.to;
+              const isActive = location.pathname === link.to;
+
               return (
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`text-sm font-semibold uppercase tracking-[0.15em] ${
-                    active ? "text-red-500" : "text-white"
-                  } hover:text-red-500`}
+                  className={`font-heading text-sm font-semibold uppercase tracking-[0.16em] transition-colors hover:text-accent ${
+                    isActive ? "text-accent" : "text-primary-foreground"
+                  }`}
                 >
                   {link.label}
                 </Link>
@@ -59,39 +59,95 @@ const Navbar = () => {
         </div>
 
         {/* RIGHT: ACTIONS */}
-        <div className="hidden md:flex justify-end items-center gap-4">
-          <a href="https://www.facebook.com/share/1B1sBESGTK/?mibextid=wwXIfr" target="_blank">
-            <Facebook className="h-5 w-5 text-white hover:text-red-500" />
+        <div className="hidden md:flex items-center gap-4">
+          <a
+            href="https://www.facebook.com/share/1B1sBESGTK/?mibextid=wwXIfr"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            className="text-primary-foreground transition-colors hover:text-accent"
+          >
+            <Facebook className="h-5 w-5" />
           </a>
 
-          <a href="https://www.instagram.com/jbtranspotow/" target="_blank">
-            <Instagram className="h-5 w-5 text-white hover:text-red-500" />
+          <a
+            href="https://www.instagram.com/jbtranspotow/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="text-primary-foreground transition-colors hover:text-accent"
+          >
+            <Instagram className="h-5 w-5" />
           </a>
 
           <a href="tel:4143063970">
-            <Button className="bg-red-500 hover:bg-red-600 text-white font-bold px-4">
+            <Button className="gap-2 bg-accent font-heading font-bold text-accent-foreground hover:bg-accent/90">
+              <Phone className="h-4 w-4" />
               414-306-3970
             </Button>
           </a>
         </div>
 
-        {/* MOBILE MENU */}
+        {/* MOBILE TOGGLE */}
         <button
-          className="md:hidden justify-self-end text-white"
-          onClick={() => setOpen(!open)}
+          type="button"
+          className="justify-self-end text-primary-foreground md:hidden"
+          onClick={() => setOpen((prev) => !prev)}
+          aria-label="Toggle menu"
         >
-          {open ? <X /> : <Menu />}
+          {open ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
         </button>
       </div>
 
+      {/* MOBILE MENU */}
       {open && (
-        <div className="md:hidden bg-primary border-t border-white/10">
+        <div className="border-t border-white/10 bg-primary md:hidden">
           <nav className="container flex flex-col gap-4 py-6">
-            {navLinks.map((link) => (
-              <Link key={link.to} to={link.to} onClick={() => setOpen(false)}>
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.to;
+
+              return (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  onClick={() => setOpen(false)}
+                  className={`font-heading text-lg font-semibold uppercase tracking-[0.14em] transition-colors hover:text-accent ${
+                    isActive ? "text-accent" : "text-primary-foreground"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+
+            <div className="flex items-center gap-4 border-t border-white/10 pt-4">
+              <a
+                href="https://www.facebook.com/share/1B1sBESGTK/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="text-primary-foreground transition-colors hover:text-accent"
+              >
+                <Facebook className="h-5 w-5" />
+              </a>
+
+              <a
+                href="https://www.instagram.com/jbtranspotow/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-primary-foreground transition-colors hover:text-accent"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+            </div>
+
+            <a href="tel:4143063970">
+              <Button className="w-full gap-2 bg-accent font-heading font-bold text-accent-foreground hover:bg-accent/90">
+                <Phone className="h-4 w-4" />
+                Call Now: 414-306-3970
+              </Button>
+            </a>
           </nav>
         </div>
       )}
