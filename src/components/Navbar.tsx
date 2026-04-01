@@ -18,20 +18,21 @@ const Navbar = () => {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-primary/95 backdrop-blur-md">
-      <div className="container flex h-28 items-center justify-between">
+      <div className="container flex h-24 items-center justify-between">
         
-        {/* 🔥 LARGE LOGO (MAIN BRAND) */}
+        {/* 🔥 LARGE BRAND LOGO */}
         <Link to="/" className="flex items-center">
           <img
             src={logo}
             alt="JB Transportation & Towing"
-            className="h-20 w-auto object-contain"
+            className="h-24 w-auto object-contain"
           />
         </Link>
 
-        {/* 🔥 NAV MOVED RIGHT */}
+        {/* RIGHT SIDE */}
         <div className="flex items-center gap-10">
           
+          {/* NAV */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.to;
@@ -50,7 +51,7 @@ const Navbar = () => {
             })}
           </nav>
 
-          {/* RIGHT SIDE */}
+          {/* SOCIAL + CALL */}
           <div className="hidden md:flex items-center gap-4">
             <a
               href="https://www.facebook.com/share/1B1sBESGTK/?mibextid=wwXIfr"
@@ -80,7 +81,7 @@ const Navbar = () => {
 
         </div>
 
-        {/* MOBILE MENU BUTTON */}
+        {/* MOBILE MENU */}
         <button
           className="md:hidden text-primary-foreground"
           onClick={() => setOpen(!open)}
@@ -89,7 +90,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* MOBILE MENU */}
       {open && (
         <div className="md:hidden border-t border-white/10 bg-primary">
           <nav className="container py-6 flex flex-col gap-4">
