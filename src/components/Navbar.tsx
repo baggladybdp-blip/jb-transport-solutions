@@ -18,73 +18,66 @@ const Navbar = () => {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-primary/95 backdrop-blur-md">
-      <div className="container flex h-24 items-center justify-between">
-        
-        {/* 🔥 LARGE BRAND LOGO */}
-        <Link to="/" className="flex items-center">
+      <div className="container flex h-28 items-center justify-between">
+        <Link to="/" className="flex shrink-0 items-center">
           <img
             src={logo}
             alt="JB Transportation & Towing"
-            className="h-24 w-auto object-contain"
+            className="h-24 w-[260px] object-contain object-left"
           />
         </Link>
 
-        {/* RIGHT SIDE */}
-        <div className="flex items-center gap-10">
-          
-          {/* NAV */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => {
-              const isActive = location.pathname === link.to;
+        <nav className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.to;
 
-              return (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  className={`font-heading text-sm font-semibold uppercase tracking-[0.16em] transition-colors hover:text-accent ${
-                    isActive ? "text-accent" : "text-primary-foreground"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </nav>
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`font-heading text-sm font-semibold uppercase tracking-[0.16em] transition-colors hover:text-accent ${
+                  isActive ? "text-accent" : "text-primary-foreground"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </nav>
 
-          {/* SOCIAL + CALL */}
-          <div className="hidden md:flex items-center gap-4">
-            <a
-              href="https://www.facebook.com/share/1B1sBESGTK/?mibextid=wwXIfr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary-foreground hover:text-accent"
-            >
-              <Facebook className="h-5 w-5" />
-            </a>
+        <div className="hidden md:flex items-center gap-4">
+          <a
+            href="https://www.facebook.com/share/1B1sBESGTK/?mibextid=wwXIfr"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            className="text-primary-foreground transition-colors hover:text-accent"
+          >
+            <Facebook className="h-5 w-5" />
+          </a>
 
-            <a
-              href="https://www.instagram.com/jbtranspotow/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary-foreground hover:text-accent"
-            >
-              <Instagram className="h-5 w-5" />
-            </a>
+          <a
+            href="https://www.instagram.com/jbtranspotow/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="text-primary-foreground transition-colors hover:text-accent"
+          >
+            <Instagram className="h-5 w-5" />
+          </a>
 
-            <a href="tel:4143063970">
-              <Button className="bg-accent font-bold gap-2">
-                <Phone className="h-4 w-4" />
-                414-306-3970
-              </Button>
-            </a>
-          </div>
-
+          <a href="tel:4143063970">
+            <Button className="gap-2 bg-accent font-heading font-bold text-accent-foreground hover:bg-accent/90">
+              <Phone className="h-4 w-4" />
+              414-306-3970
+            </Button>
+          </a>
         </div>
 
-        {/* MOBILE MENU */}
         <button
           className="md:hidden text-primary-foreground"
           onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
         >
           {open ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
         </button>
@@ -92,7 +85,7 @@ const Navbar = () => {
 
       {open && (
         <div className="md:hidden border-t border-white/10 bg-primary">
-          <nav className="container py-6 flex flex-col gap-4">
+          <nav className="container flex flex-col gap-4 py-6">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
@@ -105,12 +98,29 @@ const Navbar = () => {
             ))}
 
             <div className="flex gap-4 pt-4 border-t border-white/10">
-              <Facebook className="h-5 w-5" />
-              <Instagram className="h-5 w-5" />
+              <a
+                href="https://www.facebook.com/share/1B1sBESGTK/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="text-primary-foreground"
+              >
+                <Facebook className="h-5 w-5" />
+              </a>
+
+              <a
+                href="https://www.instagram.com/jbtranspotow/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-primary-foreground"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
             </div>
 
             <a href="tel:4143063970">
-              <Button className="w-full bg-accent font-bold">
+              <Button className="w-full bg-accent font-bold text-accent-foreground">
                 Call Now: 414-306-3970
               </Button>
             </a>
