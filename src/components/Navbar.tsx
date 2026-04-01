@@ -18,20 +18,31 @@ const Navbar = () => {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-primary/95 backdrop-blur-md">
-      <div className="container flex h-32 items-center justify-between gap-6">
-        {/* LEFT: LARGE LOGO */}
-        <div className="flex shrink-0 items-center">
-          <Link to="/" className="flex items-center">
-            <img
-              src={logo}
-              alt="JB Transportation & Towing"
-              className="h-24 w-[460px] max-w-none object-contain object-left"
-            />
+      <div className="container grid h-28 grid-cols-[1fr_auto_1fr] items-center gap-4">
+        {/* LEFT: BRAND */}
+        <div className="flex min-w-0 items-center">
+          <Link to="/" className="flex items-center gap-4 min-w-0">
+            <div className="flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden">
+              <img
+                src={logo}
+                alt="JB Transportation & Towing"
+                className="h-full w-full object-contain object-left"
+              />
+            </div>
+
+            <div className="min-w-0">
+              <p className="truncate font-heading text-2xl font-black uppercase tracking-wide leading-none text-primary-foreground">
+                JB Transportation & Towing
+              </p>
+              <p className="mt-2 text-xs uppercase tracking-[0.28em] text-silver">
+                Transport • Towing • Courier
+              </p>
+            </div>
           </Link>
         </div>
 
         {/* CENTER: NAV */}
-        <div className="hidden flex-1 justify-center md:flex">
+        <div className="hidden md:flex items-center justify-center">
           <nav className="flex items-center gap-10">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.to;
@@ -52,7 +63,7 @@ const Navbar = () => {
         </div>
 
         {/* RIGHT: SOCIAL + CALL */}
-        <div className="hidden shrink-0 items-center gap-4 md:flex">
+        <div className="hidden md:flex items-center justify-end gap-4">
           <a
             href="https://www.facebook.com/share/1B1sBESGTK/?mibextid=wwXIfr"
             target="_blank"
@@ -84,7 +95,7 @@ const Navbar = () => {
         {/* MOBILE TOGGLE */}
         <button
           type="button"
-          className="text-primary-foreground md:hidden"
+          className="justify-self-end text-primary-foreground md:hidden"
           onClick={() => setOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
