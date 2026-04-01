@@ -218,6 +218,31 @@ const Towing = () => {
         </div>
       </section>
 
+      {/* COMMUNITY IMPACT */}
+      <section className="bg-background py-20">
+        <div className="container">
+          <div className="mx-auto max-w-3xl border-t border-white/10 pt-10">
+            <h3 className="text-lg font-bold uppercase tracking-wide text-white">
+              More Than a Service
+            </h3>
+
+            <p className="mt-4 max-w-2xl leading-relaxed text-silver">
+              Our work also supports workforce reentry and training opportunities
+              within our community. By working with us, you are helping create
+              real pathways for individuals building a second chance through
+              employment and skill development.
+            </p>
+
+            <Link
+              to="/community"
+              className="inline-block mt-4 font-semibold text-accent hover:underline"
+            >
+              Learn About Our Community Initiative →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* FINAL CTA */}
       <section className="bg-primary py-24 text-center text-primary-foreground">
         <div className="container max-w-3xl">

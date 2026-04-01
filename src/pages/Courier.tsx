@@ -44,11 +44,11 @@ const Courier = () => {
               </div>
 
               <h1 className="mb-6 text-4xl font-heading font-black leading-tight text-primary-foreground md:text-5xl">
-                Same-Day Courier Service for Medical, Legal & Business Delivery
+                Same-Day Courier Service for Medical, Legal &amp; Business Delivery
               </h1>
 
               <p className="mb-6 text-lg font-body leading-relaxed text-silver">
-                JB Transportation & Towing provides dependable courier delivery
+                JB Transportation &amp; Towing provides dependable courier delivery
                 for offices and businesses that need time-sensitive service,
                 direct communication, and professional handling.
               </p>
@@ -220,6 +220,31 @@ const Courier = () => {
                 accounting firms, and other local businesses.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* COMMUNITY IMPACT */}
+      <section className="bg-background py-20">
+        <div className="container">
+          <div className="mx-auto max-w-3xl border-t border-white/10 pt-10">
+            <h3 className="text-lg font-bold uppercase tracking-wide text-white">
+              More Than a Service
+            </h3>
+
+            <p className="mt-4 max-w-2xl leading-relaxed text-silver">
+              Our work also supports workforce reentry and training opportunities
+              within our community. By working with us, you are helping create
+              real pathways for individuals building a second chance through
+              employment and skill development.
+            </p>
+
+            <Link
+              to="/community"
+              className="mt-4 inline-block font-semibold text-accent hover:underline"
+            >
+              Learn About Our Community Initiative →
+            </Link>
           </div>
         </div>
       </section>
