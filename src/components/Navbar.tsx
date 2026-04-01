@@ -18,24 +18,21 @@ const Navbar = () => {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-primary/95 backdrop-blur-md">
-      
-      {/* 🔥 INCREASE HEADER HEIGHT TO SUPPORT BIG LOGO */}
-      <div className="container flex h-32 items-center justify-between">
-        
-        {/* 🔥 TRUE LARGE LOGO */}
-        <Link to="/" className="flex items-center shrink-0">
-          <img
-            src={logo}
-            alt="JB Transportation & Towing"
-            className="h-28 w-[420px] object-contain object-left"
-          />
-        </Link>
+      <div className="container flex h-32 items-center justify-between gap-6">
+        {/* LEFT: LARGE LOGO */}
+        <div className="flex shrink-0 items-center">
+          <Link to="/" className="flex items-center">
+            <img
+              src={logo}
+              alt="JB Transportation & Towing"
+              className="h-24 w-[460px] max-w-none object-contain object-left"
+            />
+          </Link>
+        </div>
 
-        {/* NAV + RIGHT SIDE */}
-        <div className="flex items-center gap-10">
-          
-          {/* NAV */}
-          <nav className="hidden md:flex items-center gap-8">
+        {/* CENTER: NAV */}
+        <div className="hidden flex-1 justify-center md:flex">
+          <nav className="flex items-center gap-10">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.to;
 
@@ -52,68 +49,95 @@ const Navbar = () => {
               );
             })}
           </nav>
-
-          {/* SOCIAL + CALL */}
-          <div className="hidden md:flex items-center gap-4">
-            <a
-              href="https://www.facebook.com/share/1B1sBESGTK/?mibextid=wwXIfr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary-foreground hover:text-accent"
-            >
-              <Facebook className="h-5 w-5" />
-            </a>
-
-            <a
-              href="https://www.instagram.com/jbtranspotow/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary-foreground hover:text-accent"
-            >
-              <Instagram className="h-5 w-5" />
-            </a>
-
-            <a href="tel:4143063970">
-              <Button className="bg-accent font-bold gap-2">
-                <Phone className="h-4 w-4" />
-                414-306-3970
-              </Button>
-            </a>
-          </div>
-
         </div>
 
-        {/* MOBILE MENU */}
+        {/* RIGHT: SOCIAL + CALL */}
+        <div className="hidden shrink-0 items-center gap-4 md:flex">
+          <a
+            href="https://www.facebook.com/share/1B1sBESGTK/?mibextid=wwXIfr"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            className="text-primary-foreground transition-colors hover:text-accent"
+          >
+            <Facebook className="h-5 w-5" />
+          </a>
+
+          <a
+            href="https://www.instagram.com/jbtranspotow/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="text-primary-foreground transition-colors hover:text-accent"
+          >
+            <Instagram className="h-5 w-5" />
+          </a>
+
+          <a href="tel:4143063970">
+            <Button className="gap-2 bg-accent font-heading font-bold text-accent-foreground hover:bg-accent/90">
+              <Phone className="h-4 w-4" />
+              414-306-3970
+            </Button>
+          </a>
+        </div>
+
+        {/* MOBILE TOGGLE */}
         <button
-          className="md:hidden text-primary-foreground"
-          onClick={() => setOpen(!open)}
+          type="button"
+          className="text-primary-foreground md:hidden"
+          onClick={() => setOpen((prev) => !prev)}
+          aria-label="Toggle menu"
         >
           {open ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
         </button>
       </div>
 
-      {/* MOBILE DROPDOWN */}
+      {/* MOBILE MENU */}
       {open && (
-        <div className="md:hidden border-t border-white/10 bg-primary">
-          <nav className="container py-6 flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                onClick={() => setOpen(false)}
-                className="text-lg uppercase text-primary-foreground"
-              >
-                {link.label}
-              </Link>
-            ))}
+        <div className="border-t border-white/10 bg-primary md:hidden">
+          <nav className="container flex flex-col gap-4 py-6">
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.to;
 
-            <div className="flex gap-4 pt-4 border-t border-white/10">
-              <Facebook className="h-5 w-5" />
-              <Instagram className="h-5 w-5" />
+              return (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  onClick={() => setOpen(false)}
+                  className={`font-heading text-lg font-semibold uppercase tracking-[0.14em] transition-colors hover:text-accent ${
+                    isActive ? "text-accent" : "text-primary-foreground"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+
+            <div className="flex items-center gap-4 border-t border-white/10 pt-4">
+              <a
+                href="https://www.facebook.com/share/1B1sBESGTK/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="text-primary-foreground transition-colors hover:text-accent"
+              >
+                <Facebook className="h-5 w-5" />
+              </a>
+
+              <a
+                href="https://www.instagram.com/jbtranspotow/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-primary-foreground transition-colors hover:text-accent"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
             </div>
 
             <a href="tel:4143063970">
-              <Button className="w-full bg-accent font-bold">
+              <Button className="w-full gap-2 bg-accent font-heading font-bold text-accent-foreground hover:bg-accent/90">
+                <Phone className="h-4 w-4" />
                 Call Now: 414-306-3970
               </Button>
             </a>
