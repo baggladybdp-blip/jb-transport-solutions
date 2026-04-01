@@ -7,13 +7,14 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
+import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import Quote from "./pages/Quote";
 import Courier from "./pages/Courier";
 import Transport from "./pages/Transport";
 import Towing from "./pages/Towing";
-import Community from "./pages/Community"; // ✅ NEW
+import Community from "./pages/Community";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,12 +23,12 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        {/* Notifications */}
         <Toaster />
         <Sonner />
 
-        {/* Routing */}
         <BrowserRouter>
+          <ScrollToTop />
+
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/services" element={<Services />} />
@@ -35,7 +36,7 @@ function App() {
             <Route path="/courier" element={<Courier />} />
             <Route path="/transport" element={<Transport />} />
             <Route path="/towing" element={<Towing />} />
-            <Route path="/community" element={<Community />} /> {/* ✅ NEW ROUTE */}
+            <Route path="/community" element={<Community />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

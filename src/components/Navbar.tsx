@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/jb-logo.png"; // <-- this is now your JB emblem only
+import logo from "@/assets/jb-logo.png";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -17,42 +17,39 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-primary/95 backdrop-blur-md">
-      <div className="container grid h-28 grid-cols-[auto_1fr_auto] items-center">
+    <header className="fixed inset-x-0 top-0 z-50 bg-primary/95 backdrop-blur-md border-b border-white/10">
+      <div className="container grid grid-cols-3 items-center h-24">
         
-        {/* 🔥 LEFT: BRAND (PROPERLY ALIGNED) */}
-        <div className="flex items-center gap-4">
-          {/* LOGO ICON */}
+        {/* LEFT: LOGO + NAME */}
+        <div className="flex items-center gap-3">
           <img
             src={logo}
             alt="JB Logo"
-            className="h-16 w-16 object-contain"
+            className="h-12 w-12 object-contain"
           />
 
-          {/* BUSINESS NAME */}
-          <div className="leading-tight">
-            <p className="font-heading text-xl font-black uppercase tracking-wide text-primary-foreground">
+          <div>
+            <p className="text-lg font-black uppercase tracking-wide text-white leading-none">
               JB Transportation & Towing
             </p>
-            <p className="text-[11px] uppercase tracking-[0.28em] text-silver mt-1">
-              Transport • Towing • Courier
+            <p className="text-[10px] tracking-[0.25em] text-gray-400 mt-1">
+              TRANSPORT • TOWING • COURIER
             </p>
           </div>
         </div>
 
-        {/* 🔥 CENTER: TRUE CENTERED NAV */}
+        {/* CENTER: NAV (TRUE CENTER) */}
         <div className="hidden md:flex justify-center">
-          <nav className="flex items-center gap-10">
+          <nav className="flex gap-8">
             {navLinks.map((link) => {
-              const isActive = location.pathname === link.to;
-
+              const active = location.pathname === link.to;
               return (
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`font-heading text-sm font-semibold uppercase tracking-[0.16em] transition-colors hover:text-accent ${
-                    isActive ? "text-accent" : "text-primary-foreground"
-                  }`}
+                  className={`text-sm font-semibold uppercase tracking-[0.15em] ${
+                    active ? "text-red-500" : "text-white"
+                  } hover:text-red-500`}
                 >
                   {link.label}
                 </Link>
@@ -61,68 +58,40 @@ const Navbar = () => {
           </nav>
         </div>
 
-        {/* 🔥 RIGHT: ACTIONS */}
-        <div className="hidden md:flex items-center gap-4">
-          <a
-            href="https://www.facebook.com/share/1B1sBESGTK/?mibextid=wwXIfr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary-foreground hover:text-accent"
-          >
-            <Facebook className="h-5 w-5" />
+        {/* RIGHT: ACTIONS */}
+        <div className="hidden md:flex justify-end items-center gap-4">
+          <a href="https://www.facebook.com/share/1B1sBESGTK/?mibextid=wwXIfr" target="_blank">
+            <Facebook className="h-5 w-5 text-white hover:text-red-500" />
           </a>
 
-          <a
-            href="https://www.instagram.com/jbtranspotow/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary-foreground hover:text-accent"
-          >
-            <Instagram className="h-5 w-5" />
+          <a href="https://www.instagram.com/jbtranspotow/" target="_blank">
+            <Instagram className="h-5 w-5 text-white hover:text-red-500" />
           </a>
 
           <a href="tel:4143063970">
-            <Button className="bg-accent font-bold gap-2">
-              <Phone className="h-4 w-4" />
+            <Button className="bg-red-500 hover:bg-red-600 text-white font-bold px-4">
               414-306-3970
             </Button>
           </a>
         </div>
 
-        {/* 🔥 MOBILE MENU BUTTON */}
+        {/* MOBILE MENU */}
         <button
-          className="md:hidden justify-self-end text-primary-foreground"
+          className="md:hidden justify-self-end text-white"
           onClick={() => setOpen(!open)}
         >
-          {open ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
+          {open ? <X /> : <Menu />}
         </button>
       </div>
 
-      {/* 🔥 MOBILE MENU */}
       {open && (
-        <div className="md:hidden border-t border-white/10 bg-primary">
-          <nav className="container py-6 flex flex-col gap-4">
+        <div className="md:hidden bg-primary border-t border-white/10">
+          <nav className="container flex flex-col gap-4 py-6">
             {navLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                onClick={() => setOpen(false)}
-                className="text-lg uppercase text-primary-foreground"
-              >
+              <Link key={link.to} to={link.to} onClick={() => setOpen(false)}>
                 {link.label}
               </Link>
             ))}
-
-            <div className="flex gap-4 pt-4 border-t border-white/10">
-              <Facebook className="h-5 w-5" />
-              <Instagram className="h-5 w-5" />
-            </div>
-
-            <a href="tel:4143063970">
-              <Button className="w-full bg-accent font-bold">
-                Call Now: 414-306-3970
-              </Button>
-            </a>
           </nav>
         </div>
       )}
