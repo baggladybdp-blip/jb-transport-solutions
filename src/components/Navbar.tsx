@@ -58,7 +58,7 @@ const Navbar = () => {
 
         <div className="hidden items-center gap-4 md:flex">
           <a
-            href="https://facebook.com"
+            href="https://www.facebook.com/share/1B1sBESGTK/?mibextid=wwXIfr"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
@@ -68,7 +68,7 @@ const Navbar = () => {
           </a>
 
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/jbtranspotow/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
@@ -117,7 +117,7 @@ const Navbar = () => {
 
             <div className="flex items-center gap-4 border-t border-white/10 pt-4">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/share/1B1sBESGTK/?mibextid=wwXIfr"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -127,7 +127,7 @@ const Navbar = () => {
               </a>
 
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/jbtranspotow/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
