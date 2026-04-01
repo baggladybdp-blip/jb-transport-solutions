@@ -18,9 +18,11 @@ const Navbar = () => {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-primary/95 backdrop-blur-md">
-      <div className="container flex h-24 items-center justify-between gap-4">
-        <Link to="/" className="flex min-w-0 items-center gap-3">
-          <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-md bg-transparent">
+      <div className="container flex h-24 items-center justify-between gap-6">
+        
+        {/* LOGO (UPDATED SIZE) */}
+        <Link to="/" className="flex items-center gap-4">
+          <div className="flex h-16 w-28 items-center justify-center">
             <img
               src={logo}
               alt="JB Transportation & Towing"
@@ -28,8 +30,8 @@ const Navbar = () => {
             />
           </div>
 
-          <div className="hidden min-w-0 lg:block">
-            <p className="truncate font-heading text-lg font-black uppercase tracking-wide text-primary-foreground">
+          <div className="hidden lg:block">
+            <p className="font-heading text-lg font-black uppercase tracking-wide text-primary-foreground">
               JB Transportation & Towing
             </p>
             <p className="text-xs uppercase tracking-[0.18em] text-silver">
@@ -38,6 +40,7 @@ const Navbar = () => {
           </div>
         </Link>
 
+        {/* NAV */}
         <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => {
             const isActive = location.pathname === link.to;
@@ -56,13 +59,13 @@ const Navbar = () => {
           })}
         </nav>
 
+        {/* RIGHT SIDE */}
         <div className="hidden items-center gap-4 md:flex">
           <a
             href="https://www.facebook.com/share/1B1sBESGTK/?mibextid=wwXIfr"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Facebook"
-            className="text-primary-foreground transition-colors hover:text-accent"
+            className="text-primary-foreground hover:text-accent transition-colors"
           >
             <Facebook className="h-5 w-5" />
           </a>
@@ -71,75 +74,60 @@ const Navbar = () => {
             href="https://www.instagram.com/jbtranspotow/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Instagram"
-            className="text-primary-foreground transition-colors hover:text-accent"
+            className="text-primary-foreground hover:text-accent transition-colors"
           >
             <Instagram className="h-5 w-5" />
           </a>
 
           <a href="tel:4143063970">
-            <Button className="gap-2 bg-accent font-heading font-bold text-accent-foreground hover:bg-accent/90">
+            <Button className="bg-accent hover:bg-accent/90 text-accent-foreground font-heading font-bold gap-2">
               <Phone className="h-4 w-4" />
               414-306-3970
             </Button>
           </a>
         </div>
 
+        {/* MOBILE TOGGLE */}
         <button
-          type="button"
-          className="text-primary-foreground md:hidden"
-          onClick={() => setOpen((prev) => !prev)}
-          aria-label="Toggle menu"
+          className="md:hidden text-primary-foreground"
+          onClick={() => setOpen(!open)}
         >
           {open ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
         </button>
       </div>
 
+      {/* MOBILE MENU */}
       {open && (
-        <div className="border-t border-white/10 bg-primary md:hidden">
-          <nav className="container flex flex-col gap-5 py-6">
-            {navLinks.map((link) => {
-              const isActive = location.pathname === link.to;
+        <div className="md:hidden border-t border-white/10 bg-primary">
+          <nav className="container py-6 flex flex-col gap-4">
+            {navLinks.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                onClick={() => setOpen(false)}
+                className="font-heading text-lg uppercase tracking-wider text-primary-foreground hover:text-accent"
+              >
+                {link.label}
+              </Link>
+            ))}
 
-              return (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  onClick={() => setOpen(false)}
-                  className={`font-heading text-lg font-semibold uppercase tracking-[0.14em] transition-colors hover:text-accent ${
-                    isActive ? "text-accent" : "text-primary-foreground"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-
-            <div className="flex items-center gap-4 border-t border-white/10 pt-4">
+            <div className="flex gap-4 pt-4 border-t border-white/10">
               <a
                 href="https://www.facebook.com/share/1B1sBESGTK/?mibextid=wwXIfr"
                 target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="text-primary-foreground transition-colors hover:text-accent"
               >
                 <Facebook className="h-5 w-5" />
               </a>
-
               <a
                 href="https://www.instagram.com/jbtranspotow/"
                 target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="text-primary-foreground transition-colors hover:text-accent"
               >
                 <Instagram className="h-5 w-5" />
               </a>
             </div>
 
             <a href="tel:4143063970">
-              <Button className="w-full gap-2 bg-accent font-heading font-bold text-accent-foreground hover:bg-accent/90">
-                <Phone className="h-4 w-4" />
+              <Button className="w-full bg-accent font-bold">
                 Call Now: 414-306-3970
               </Button>
             </a>
