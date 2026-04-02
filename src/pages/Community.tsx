@@ -1,90 +1,246 @@
 // File: src/pages/Community.tsx
 
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import {
+  ArrowRight,
+  Briefcase,
+  Building2,
+  CheckCircle,
+  Handshake,
+  Shield,
+  Users,
+} from "lucide-react";
 import Layout from "@/components/Layout";
+
+const pillars = [
+  {
+    icon: Users,
+    title: "Workforce Reentry",
+    text: "Creating structured pathways for individuals reentering society to move toward stable, productive work.",
+  },
+  {
+    icon: Briefcase,
+    title: "Job Readiness",
+    text: "Building exposure to transportation, logistics, service work, and the professional expectations that come with it.",
+  },
+  {
+    icon: Building2,
+    title: "Business Partnership",
+    text: "Working with employers, organizations, and community partners to create real opportunities and practical next steps.",
+  },
+];
+
+const howItWorks = [
+  "Connect with referral and community partners",
+  "Identify participants who are ready for structured opportunity",
+  "Provide exposure, hands-on learning, and work-readiness support",
+  "Build pathways into transportation, logistics, and service-related work",
+];
+
+const businessImpact = [
+  "Supports a company reinvesting into workforce development",
+  "Helps create pathways into logistics and transportation careers",
+  "Contributes to stronger communities through work and opportunity",
+  "Strengthens long-term business and workforce sustainability",
+];
 
 export default function Community() {
   return (
     <Layout>
-      <main className="pt-32 pb-20">
-        <div className="container max-w-5xl">
+      <main className="bg-background pt-24 pb-16 md:pt-32 md:pb-20">
+        <div className="container max-w-6xl">
+          {/* HERO */}
+          <section className="rounded-3xl bg-primary px-6 py-10 text-white shadow-lg md:px-10 md:py-14">
+            <div className="max-w-3xl">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-accent md:text-sm">
+                Community Initiative
+              </p>
 
-          {/* HEADER */}
-          <section className="mb-12">
-            <h1 className="text-3xl md:text-4xl font-black uppercase tracking-wide text-white">
-              Workforce Reentry Initiative
-            </h1>
-            <p className="mt-4 text-lg text-silver leading-relaxed">
-              We are committed to creating real opportunities for individuals reentering society by providing structured pathways into transportation, logistics, and service-based careers.
-            </p>
+              <h1 className="text-3xl font-black leading-tight md:text-4xl lg:text-5xl">
+                Workforce Reentry with a Real Path Toward Work
+              </h1>
+
+              <p className="mt-5 max-w-2xl text-sm leading-7 text-silver md:text-base">
+                JB Transportation & Towing is building a workforce initiative
+                focused on helping individuals reentering society move toward
+                structured opportunities in transportation, logistics, and
+                service-based careers.
+              </p>
+
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-silver md:text-base">
+                This is about creating practical pathways through work exposure,
+                hands-on experience, and long-term partnership — not vague
+                promises.
+              </p>
+            </div>
           </section>
 
-          {/* WHAT WE'RE DOING */}
-          <section className="mb-12">
-            <h2 className="text-xl font-bold uppercase tracking-wide text-white">
-              What We’re Building
-            </h2>
-            <p className="mt-4 text-silver leading-relaxed">
-              This initiative is focused on preparing individuals for real work opportunities through exposure, training support, and hands-on experience. 
-              We aim to help people build stability, develop skills, and move forward with purpose.
-            </p>
+          {/* PILLARS */}
+          <section className="mt-12 md:mt-16">
+            <div className="mx-auto mb-8 max-w-2xl text-center md:mb-10">
+              <h2 className="text-2xl font-bold text-white md:text-3xl">
+                What We’re Building
+              </h2>
+              <p className="mt-3 text-sm leading-6 text-silver md:text-base">
+                A structured initiative designed to connect work, stability, and
+                real opportunity.
+              </p>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-3 md:gap-6">
+              {pillars.map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-2xl border border-white/10 bg-white/5 p-5 shadow-sm backdrop-blur-sm md:p-6"
+                >
+                  <item.icon className="mb-4 h-10 w-10 text-accent" />
+                  <h3 className="mb-3 text-lg font-bold text-white">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm leading-6 text-silver">{item.text}</p>
+                </div>
+              ))}
+            </div>
           </section>
 
-          {/* WHY IT MATTERS */}
-          <section className="mb-12">
-            <h2 className="text-xl font-bold uppercase tracking-wide text-white">
-              Why This Matters
-            </h2>
-            <p className="mt-4 text-silver leading-relaxed">
-              Many individuals returning to society face barriers to employment, which increases the likelihood of reoffending. Access to work, structure, and opportunity significantly improves long-term outcomes.
-            </p>
-            <p className="mt-4 text-silver leading-relaxed">
-              Employment plays a major role in reducing recidivism — creating safer communities, stronger businesses, and more stable environments for families.
-            </p>
+          {/* WHY IT MATTERS + HOW IT WORKS */}
+          <section className="mt-12 grid gap-6 md:mt-16 md:grid-cols-2">
+            <div className="rounded-2xl bg-white p-6 shadow-md md:p-8">
+              <div className="mb-4 flex items-center gap-3">
+                <Shield className="h-8 w-8 text-accent" />
+                <h2 className="text-xl font-bold text-slate-900 md:text-2xl">
+                  Why This Matters
+                </h2>
+              </div>
+
+              <p className="text-sm leading-7 text-slate-600 md:text-base">
+                Many individuals returning to society face serious employment
+                barriers. Without structure, opportunity, and access to work,
+                long-term stability becomes harder to achieve.
+              </p>
+
+              <p className="mt-4 text-sm leading-7 text-slate-600 md:text-base">
+                Employment can play a major role in reducing reoffending,
+                strengthening families, and contributing to safer communities.
+                This initiative is designed to support that reality through real
+                pathways, not just good intentions.
+              </p>
+            </div>
+
+            <div className="rounded-2xl bg-white p-6 shadow-md md:p-8">
+              <div className="mb-4 flex items-center gap-3">
+                <Handshake className="h-8 w-8 text-accent" />
+                <h2 className="text-xl font-bold text-slate-900 md:text-2xl">
+                  How We See It Working
+                </h2>
+              </div>
+
+              <ul className="space-y-3">
+                {howItWorks.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+                    <span className="text-sm leading-6 text-slate-600 md:text-base">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </section>
 
-          {/* HOW BUSINESSES HELP */}
-          <section className="mb-12">
-            <h2 className="text-xl font-bold uppercase tracking-wide text-white">
-              How Businesses Are Part of It
-            </h2>
-            <p className="mt-4 text-silver leading-relaxed">
-              Businesses we work with are part of something bigger. By choosing JB Transportation & Towing, you are helping create opportunities for individuals working to rebuild their lives.
-            </p>
+          {/* BUSINESS CONNECTION */}
+          <section className="mt-12 rounded-3xl bg-white px-6 py-10 shadow-md md:mt-16 md:px-10 md:py-12">
+            <div className="grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-start">
+              <div>
+                <h2 className="text-2xl font-bold text-slate-900 md:text-3xl">
+                  How Businesses Are Part of It
+                </h2>
 
-            <ul className="mt-6 space-y-3 text-silver">
-              <li>• Supporting a business that reinvests in workforce development</li>
-              <li>• Helping create pathways into logistics and transportation careers</li>
-              <li>• Contributing to safer and more stable communities</li>
-            </ul>
+                <p className="mt-4 text-sm leading-7 text-slate-600 md:text-base">
+                  Businesses that work with JB Transportation & Towing are part
+                  of something bigger than a single transaction. By choosing to
+                  work with us, they are supporting a company that is committed
+                  to building workforce, creating opportunity, and growing
+                  responsibly.
+                </p>
+
+                <p className="mt-4 text-sm leading-7 text-slate-600 md:text-base">
+                  This initiative is meant to create long-term value for
+                  participants, partner organizations, employers, and the wider
+                  community.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 md:p-6">
+                <h3 className="mb-4 text-lg font-bold text-slate-900">
+                  Business Impact
+                </h3>
+
+                <ul className="space-y-3">
+                  {businessImpact.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+                      <span className="text-sm leading-6 text-slate-700">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </section>
 
           {/* PARTNERSHIPS */}
-          <section className="mb-12">
-            <h2 className="text-xl font-bold uppercase tracking-wide text-white">
-              Building Partnerships
-            </h2>
-            <p className="mt-4 text-silver leading-relaxed">
-              We are actively working to connect with workforce development programs, reentry support organizations, training providers, and community leaders to create real, structured pathways into employment.
-            </p>
+          <section className="mt-12 md:mt-16">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
+              <h2 className="text-2xl font-bold text-white md:text-3xl">
+                Building Partnerships
+              </h2>
+
+              <p className="mt-4 max-w-4xl text-sm leading-7 text-silver md:text-base">
+                We are actively interested in connecting with workforce
+                development programs, reentry support organizations, training
+                providers, employers, and community leaders who want to help
+                build real, structured pathways into work.
+              </p>
+
+              <p className="mt-4 max-w-4xl text-sm leading-7 text-silver md:text-base">
+                The goal is to create relationships that make this initiative
+                stronger, more credible, and more effective over time.
+              </p>
+            </div>
           </section>
 
           {/* CTA */}
-          <section className="mt-16 text-center">
-            <h3 className="text-xl font-bold text-white">
+          <section className="mt-12 text-center md:mt-16">
+            <h3 className="text-2xl font-bold text-white md:text-3xl">
               Want to Be Part of This Initiative?
             </h3>
-            <p className="mt-4 text-silver">
-              Whether through business partnerships, training opportunities, or collaboration, there are multiple ways to get involved.
+
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-silver md:text-base">
+              Whether through business partnerships, collaboration, training
+              support, or service relationships, there are multiple ways to get
+              involved.
             </p>
 
-            <a
-              href="/quote"
-              className="inline-block mt-6 bg-accent text-white px-6 py-3 font-bold rounded-md hover:bg-accent/90"
-            >
-              Work With Us
-            </a>
-          </section>
+            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Link to="/quote" className="w-full sm:w-auto">
+                <Button className="w-full bg-accent px-8 py-5 text-base font-bold text-white hover:bg-accent/90 sm:w-auto">
+                  Work With Us <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
 
+              <a href="tel:4143063970" className="w-full sm:w-auto">
+                <Button
+                  variant="outline"
+                  className="w-full border-white bg-transparent px-8 py-5 text-base text-white hover:bg-white hover:text-black sm:w-auto"
+                >
+                  Talk With Us
+                </Button>
+              </a>
+            </div>
+          </section>
         </div>
       </main>
     </Layout>

@@ -3,7 +3,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
-  ArrowRight,
   CheckCircle,
   Clock,
   MapPin,
@@ -73,42 +72,35 @@ const Index = () => {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src={heroImg}
-            alt="Fleet"
-            className="h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/70" />
+          <img src={heroImg} alt="Fleet" className="h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-black/75" />
         </div>
 
-        <div className="container relative z-10 py-28 md:py-36">
+        <div className="container relative z-10 pt-24 pb-16 md:py-36">
           <div className="max-w-2xl">
-            <h1 className="mb-6 text-4xl font-heading font-black leading-tight text-white md:text-5xl lg:text-6xl">
-              Reliable Transport, <br />
-              Towing & Courier Services
+            <h1 className="mb-5 text-3xl font-heading font-black leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+              Reliable Transportation Built for Businesses That Need Support
             </h1>
 
-            <p className="mb-6 text-lg text-gray-300 md:text-xl">
-              Fast, dependable vehicle transport, towing, and delivery services
-              across Milwaukee and surrounding areas.
+            <p className="mb-5 max-w-xl text-base leading-7 text-gray-300 md:text-lg">
+              Vehicle transport, towing, and courier services across Milwaukee and surrounding
+              areas. Built for businesses that need dependable, responsive, and professional
+              support.
             </p>
 
-            <p className="mb-8 text-sm font-semibold uppercase tracking-wide text-accent">
-              Direct Service • No Brokers • Fast Response
+            <p className="mb-7 text-xs font-semibold uppercase tracking-wide text-accent md:text-sm">
+              Start as Backup • Grow Into a Reliable Partner
             </p>
 
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <Link to="/quote">
-                <Button className="w-full bg-accent px-8 py-6 text-lg font-bold sm:w-auto">
-                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Link to="/quote" className="w-full sm:w-auto">
+                <Button className="w-full bg-accent px-6 py-5 text-base font-bold sm:w-auto sm:px-8 sm:py-6 sm:text-lg">
+                  Request a Quote
                 </Button>
               </Link>
 
-              <a href="tel:4143063970">
-                <Button
-                  variant="outline"
-                  className="flex w-full items-center justify-center border-white bg-transparent px-8 py-6 text-white hover:bg-white hover:text-black sm:w-auto"
-                >
+              <a href="tel:4143063970" className="w-full sm:w-auto">
+                <Button className="w-full bg-white px-6 py-5 text-base text-black hover:bg-gray-100 sm:w-auto sm:px-8 sm:py-6">
                   <Phone className="mr-2 h-5 w-5" />
                   Call Now
                 </Button>
@@ -120,42 +112,50 @@ const Index = () => {
 
       {/* TRUST BAR */}
       <section className="bg-accent py-4">
-        <div className="container flex flex-wrap justify-center gap-6">
+        <div className="container flex flex-wrap items-center justify-center gap-x-5 gap-y-3 md:gap-6">
           {trustItems.map((item) => (
             <div key={item.label} className="flex items-center gap-2 text-white">
-              <item.icon className="h-5 w-5" />
-              <span className="text-sm font-semibold">{item.label}</span>
+              <item.icon className="h-4 w-4 md:h-5 md:w-5" />
+              <span className="text-xs font-semibold sm:text-sm">{item.label}</span>
             </div>
           ))}
         </div>
       </section>
 
       {/* SERVICES */}
-      <section className="bg-gray-50 py-24">
+      <section className="bg-gray-50 py-16 md:py-24">
         <div className="container">
-          <h2 className="mb-12 text-center text-3xl font-bold">
-            Our Services
-          </h2>
+          <div className="mx-auto mb-10 max-w-2xl text-center md:mb-12">
+            <h2 className="mb-3 text-2xl font-bold text-slate-900 md:text-3xl">
+              Services Built Around Your Needs
+            </h2>
+            <p className="text-sm leading-6 text-slate-600 md:text-base">
+              Built to support businesses, repeat clients, and one-time needs with dependable
+              service and clear communication.
+            </p>
+          </div>
 
-          <div className="grid gap-10 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-3 md:gap-8 lg:gap-10">
             {services.map((service) => (
               <div
                 key={service.title}
-                className="rounded-xl bg-white p-6 shadow-md transition duration-300 hover:shadow-xl"
+                className="rounded-2xl bg-white p-4 shadow-md transition hover:shadow-xl md:p-6"
               >
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="mb-5 h-52 w-full rounded-lg object-cover"
+                  className="mb-4 h-44 w-full rounded-xl object-cover md:mb-5 md:h-52"
                 />
 
-                <h3 className="mb-4 text-xl font-bold">{service.title}</h3>
+                <h3 className="mb-3 text-lg font-bold text-slate-900 md:mb-4 md:text-xl">
+                  {service.title}
+                </h3>
 
                 <ul className="space-y-2">
                   {service.items.map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-accent" />
-                      {item}
+                    <li key={item} className="flex items-start gap-2 text-sm text-slate-700">
+                      <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -163,9 +163,9 @@ const Index = () => {
             ))}
           </div>
 
-          <div className="mt-12 text-center">
+          <div className="mt-10 text-center md:mt-12">
             <Link to="/services">
-              <Button className="bg-black px-6 py-4 text-base text-white">
+              <Button className="bg-black px-6 py-5 text-sm text-white md:px-6 md:py-4 md:text-base">
                 View All Services
               </Button>
             </Link>
@@ -173,55 +173,84 @@ const Index = () => {
         </div>
       </section>
 
-      {/* WHY CHOOSE US */}
-      <section className="bg-background py-24">
+      {/* WHY CHOOSE */}
+      <section className="bg-background py-16 md:py-24">
         <div className="container">
-          <div className="mx-auto mb-12 max-w-2xl text-center">
-            <h2 className="mb-4 text-3xl font-bold">Why Choose JB</h2>
-            <p className="text-muted-foreground">
-              Built to provide reliable service, direct communication, and a professional
-              experience for business and local clients alike.
+          <div className="mx-auto mb-10 max-w-2xl text-center md:mb-12">
+            <h2 className="mb-3 text-2xl font-bold text-slate-900 md:text-3xl">
+              Why Businesses Choose JB
+            </h2>
+            <p className="text-sm leading-6 text-muted-foreground md:text-base">
+              Reliable service, direct communication, and a structure built for long-term support.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4">
             {whyChoose.map((item) => (
               <div
                 key={item.title}
-                className="rounded-xl border border-border bg-card p-6 shadow-sm transition hover:shadow-md"
+                className="rounded-2xl border border-border bg-card p-5 shadow-sm hover:shadow-md md:p-6"
               >
-                <item.icon className="mb-4 h-10 w-10 text-accent" />
-                <h3 className="mb-3 text-lg font-bold">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.text}</p>
+                <item.icon className="mb-4 h-9 w-9 text-accent md:h-10 md:w-10" />
+                <h3 className="mb-2 text-base font-bold text-slate-900 md:mb-3 md:text-lg">
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-6 text-muted-foreground">{item.text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* LOW RISK ENTRY */}
+      <section className="bg-gray-50 py-16 md:py-20">
+        <div className="container max-w-3xl text-center">
+          <h2 className="mb-3 text-2xl font-bold text-slate-900 md:mb-4 md:text-3xl">
+            Start Small. Scale With Confidence.
+          </h2>
+          <p className="text-sm leading-7 text-muted-foreground md:text-base">
+            Many of our clients begin by using us for overflow or backup support. As we prove
+            reliability and consistency, we grow into a long-term partner.
+          </p>
+        </div>
+      </section>
+
+      {/* WORKFORCE */}
+      <section className="bg-white py-16 md:py-20">
+        <div className="container max-w-3xl text-center">
+          <h2 className="mb-3 text-2xl font-bold text-slate-900 md:mb-4 md:text-3xl">
+            More Than a Service — We’re Building Workforce
+          </h2>
+          <p className="text-sm leading-7 text-muted-foreground md:text-base">
+            JB Transportation & Towing is actively developing a workforce pipeline through hands-on
+            training and employment pathways in the transportation industry. Businesses that work
+            with us are also supporting real job opportunities and stronger communities.
+          </p>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="bg-accent py-20 text-center">
+      <section className="bg-accent py-16 text-center md:py-20">
         <div className="container">
-          <h2 className="mb-4 text-3xl font-bold text-white">
-            Need Reliable Service?
+          <h2 className="mb-3 text-2xl font-bold text-white md:mb-4 md:text-3xl">
+            Need Reliable Backup or Primary Support?
           </h2>
 
-          <p className="mb-8 text-white/90">
-            Get a fast quote and start working with a dependable transport
-            partner.
+          <p className="mx-auto mb-7 max-w-2xl text-sm leading-7 text-white/90 md:mb-8 md:text-base">
+            Get a fast quote and start working with a dependable transportation partner.
           </p>
 
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link to="/quote">
-              <Button className="bg-black px-10 py-6 text-lg text-white">
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+            <Link to="/quote" className="w-full sm:w-auto">
+              <Button className="w-full bg-black px-8 py-5 text-base text-white sm:w-auto sm:px-10 sm:py-6 sm:text-lg">
                 Request a Quote
               </Button>
             </Link>
 
-            <a href="tel:4143063970">
+            <a href="tel:4143063970" className="w-full sm:w-auto">
               <Button
                 variant="outline"
-                className="border-black bg-transparent px-10 py-6 text-lg text-black hover:bg-black hover:text-white"
+                className="w-full border-black bg-transparent px-8 py-5 text-base text-black hover:bg-black hover:text-white sm:w-auto sm:px-10 sm:py-6 sm:text-lg"
               >
                 <Phone className="mr-2 h-5 w-5" />
                 Call 414-306-3970

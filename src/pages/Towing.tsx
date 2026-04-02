@@ -6,269 +6,302 @@ import {
   ArrowRight,
   CheckCircle,
   Clock,
+  MapPin,
   Phone,
   Shield,
   Truck,
   Building2,
 } from "lucide-react";
 import Layout from "@/components/Layout";
+
 import towTruckImg from "@/assets/tow-truck.png";
 
-const towingBenefits = [
-  "Fast local towing response",
-  "Self-load tow truck for efficient service",
-  "Support for repair shops and businesses",
-  "Property and private vehicle movement",
-  "Fully insured and professional handling",
+const towingUses = [
+  "Local towing support",
+  "Business and shop support",
+  "Overflow and backup towing",
+  "Vehicle relocation",
+  "Fast-response service needs",
 ];
 
-const towingClients = [
-  "Local Drivers",
-  "Auto Repair Shops",
-  "Dealerships",
-  "Property Managers",
-  "Businesses",
-  "Private Vehicle Owners",
+const trustPoints = [
+  {
+    icon: Clock,
+    title: "Fast Response",
+    text: "Built for situations where timing matters and clients need dependable communication.",
+  },
+  {
+    icon: Shield,
+    title: "Professional Handling",
+    text: "Vehicles are handled with care, professionalism, and attention to the customer experience.",
+  },
+  {
+    icon: Truck,
+    title: "Reliable Local Support",
+    text: "Structured to support towing needs across Franklin, Milwaukee, and surrounding areas.",
+  },
+  {
+    icon: Building2,
+    title: "Business-Ready Service",
+    text: "A strong fit for repair shops, property-related needs, and businesses needing dependable towing help.",
+  },
+];
+
+const processSteps = [
+  {
+    title: "Call or request service",
+    text: "Let us know what vehicle needs help, where it is, and what kind of support is needed.",
+  },
+  {
+    title: "Get quick confirmation",
+    text: "We respond with next steps so you know your service request is being handled.",
+  },
+  {
+    title: "Pickup and transport",
+    text: "We complete the tow with professional handling and clear communication throughout.",
+  },
 ];
 
 const Towing = () => {
   return (
     <Layout>
       {/* HERO */}
-      <section className="section-dark py-24">
-        <div className="container">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div>
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-heading font-bold uppercase tracking-[0.18em] text-accent">
-                Towing Services
-              </div>
+      <section className="bg-black text-white">
+        <div className="container grid gap-10 py-16 md:grid-cols-2 md:items-center md:py-24">
+          <div>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
+              Towing Services
+            </p>
 
-              <h1 className="mb-6 text-4xl font-heading font-black leading-tight text-primary-foreground md:text-5xl">
-                Fast, Reliable Towing When You Need It Most
-              </h1>
+            <h1 className="mb-6 text-4xl font-heading font-black leading-tight md:text-5xl">
+              Reliable Towing Support When You Need Fast, Professional Help
+            </h1>
 
-              <p className="mb-6 text-lg font-body leading-relaxed text-silver">
-                JB Transportation & Towing provides dependable local towing for drivers,
-                repair shops, and businesses that need quick response and professional service.
-              </p>
+            <p className="mb-6 text-lg text-white/80">
+              JB Transportation & Towing provides dependable local towing support for drivers,
+              businesses, shops, and property-related needs across Franklin, Milwaukee, and surrounding areas.
+            </p>
 
-              <p className="mb-8 text-sm font-heading font-semibold uppercase tracking-[0.16em] text-accent">
-                Fast Response • Local Service • Professional Handling
-              </p>
+            <p className="mb-8 text-base text-white/70">
+              Whether you need one-time service, overflow support, or a dependable towing option
+              for repeat needs, we are built to respond professionally.
+            </p>
 
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <Link to="/quote">
-                  <Button className="w-full bg-accent px-8 py-6 text-lg font-heading font-bold text-accent-foreground hover:bg-accent/90 sm:w-auto">
-                    Request Towing Service
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <Link to="/quote">
+                <Button className="w-full bg-accent px-8 py-6 text-base font-bold text-white sm:w-auto">
+                  Request Towing Service <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
 
-                <a href="tel:4143063970">
-                  <Button
-                    variant="outline"
-                    className="w-full border-white bg-transparent px-8 py-6 text-lg font-heading font-bold text-white hover:bg-white hover:text-black sm:w-auto"
-                  >
-                    <Phone className="mr-2 h-5 w-5" />
-                    Call Now
-                  </Button>
-                </a>
-              </div>
+              <a href="tel:4143063970">
+                <Button
+                  variant="outline"
+                  className="w-full border-white bg-transparent px-8 py-6 text-base text-white hover:bg-white hover:text-black sm:w-auto"
+                >
+                  <Phone className="mr-2 h-5 w-5" />
+                  Call Now
+                </Button>
+              </a>
             </div>
+          </div>
 
-            <div className="overflow-hidden rounded-2xl shadow-2xl">
-              <img
-                src={towTruckImg}
-                alt="JB Transportation & Towing tow truck"
-                className="h-full w-full object-cover"
-              />
-            </div>
+          <div>
+            <img
+              src={towTruckImg}
+              alt="Tow truck"
+              className="h-full w-full rounded-2xl object-cover shadow-2xl"
+            />
           </div>
         </div>
       </section>
 
       {/* TRUST STRIP */}
       <section className="bg-accent py-4">
-        <div className="container flex flex-wrap justify-center gap-6 text-center">
-          <div className="flex items-center gap-2 text-accent-foreground">
-            <Clock className="h-5 w-5" />
-            <span className="text-sm font-heading font-semibold">
-              Fast Response
-            </span>
-          </div>
-
-          <div className="flex items-center gap-2 text-accent-foreground">
+        <div className="container flex flex-wrap justify-center gap-6 text-white">
+          <div className="flex items-center gap-2">
             <Shield className="h-5 w-5" />
-            <span className="text-sm font-heading font-semibold">
-              Fully Insured
-            </span>
+            <span className="text-sm font-semibold">Professional Service</span>
           </div>
-
-          <div className="flex items-center gap-2 text-accent-foreground">
+          <div className="flex items-center gap-2">
+            <Clock className="h-5 w-5" />
+            <span className="text-sm font-semibold">Fast Response</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <MapPin className="h-5 w-5" />
+            <span className="text-sm font-semibold">Franklin / Milwaukee Area</span>
+          </div>
+          <div className="flex items-center gap-2">
             <Truck className="h-5 w-5" />
-            <span className="text-sm font-heading font-semibold">
-              Local Milwaukee Coverage
-            </span>
+            <span className="text-sm font-semibold">Business Support Available</span>
           </div>
         </div>
       </section>
 
-      {/* WHY USE US */}
-      <section className="bg-background py-24">
+      {/* WHAT WE HANDLE */}
+      <section className="bg-white py-20">
+        <div className="container grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-start">
+          <div>
+            <h2 className="mb-4 text-3xl font-bold text-slate-900">
+              Towing Support Built Around Real Needs
+            </h2>
+
+            <p className="mb-6 max-w-2xl text-base leading-7 text-slate-600">
+              Towing is not just about moving a vehicle — it is about showing up, communicating
+              clearly, and handling the situation professionally. JB Transportation & Towing is
+              positioned to support local towing needs with dependable service and a business-ready approach.
+            </p>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              {towingUses.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-start gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4"
+                >
+                  <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+                  <span className="text-sm font-medium text-slate-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+            <h3 className="mb-4 text-xl font-bold text-slate-900">A Strong Fit For</h3>
+
+            <div className="space-y-3 text-sm text-slate-600">
+              <p>• Local drivers needing dependable towing</p>
+              <p>• Repair shops needing support</p>
+              <p>• Businesses needing overflow help</p>
+              <p>• Property-related towing needs</p>
+              <p>• Clients looking for responsive local service</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY CHOOSE */}
+      <section className="bg-slate-50 py-20">
         <div className="container">
           <div className="mx-auto mb-12 max-w-2xl text-center">
-            <h2 className="mb-4 text-3xl font-heading font-black text-foreground md:text-4xl">
-              Built for Quick, Reliable Towing
+            <h2 className="mb-4 text-3xl font-bold text-slate-900">
+              Why People and Businesses Use JB for Towing
             </h2>
-            <p className="font-body text-muted-foreground">
-              When you need towing, speed and reliability matter. Our service is designed
-              for drivers and businesses who need dependable local support.
+            <p className="text-slate-600">
+              Reliable communication, professional handling, and support built for real-world towing needs.
             </p>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-2">
-            <div className="rounded-xl border border-border bg-card p-8 shadow-sm">
-              <h3 className="mb-5 text-2xl font-heading font-bold text-foreground">
-                What We Handle
-              </h3>
-
-              <ul className="space-y-3">
-                {towingBenefits.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-3 text-sm font-body text-muted-foreground"
-                  >
-                    <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="rounded-xl border border-border bg-card p-8 shadow-sm">
-              <h3 className="mb-5 text-2xl font-heading font-bold text-foreground">
-                Best Fit Clients
-              </h3>
-
-              <div className="grid grid-cols-2 gap-3">
-                {towingClients.map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-lg bg-muted px-4 py-3 text-center text-sm font-heading font-semibold text-foreground"
-                  >
-                    {item}
-                  </div>
-                ))}
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {trustPoints.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md"
+              >
+                <item.icon className="mb-4 h-10 w-10 text-accent" />
+                <h3 className="mb-3 text-lg font-bold text-slate-900">{item.title}</h3>
+                <p className="text-sm leading-6 text-slate-600">{item.text}</p>
               </div>
-
-              <div className="mt-6 rounded-lg border border-accent/20 bg-accent/10 p-4">
-                <p className="text-sm font-body text-foreground">
-                  Need ongoing towing support for your business or property?
-                  We can discuss consistent service options.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* USE CASES */}
-      <section className="bg-muted py-24">
+      {/* LOW-RISK ENTRY */}
+      <section className="bg-white py-20">
+        <div className="container max-w-4xl text-center">
+          <h2 className="mb-4 text-3xl font-bold text-slate-900">
+            A Good Option for Overflow, Backup, and Repeat Support
+          </h2>
+          <p className="text-base leading-7 text-slate-600">
+            Businesses do not always need to replace an existing provider to work with us.
+            JB Transportation & Towing is a practical option for overflow calls, backup support,
+            one-time service needs, and relationships that grow into repeat work.
+          </p>
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section className="bg-slate-50 py-20">
         <div className="container">
           <div className="mx-auto mb-12 max-w-2xl text-center">
-            <h2 className="mb-4 text-3xl font-heading font-black text-foreground md:text-4xl">
-              Towing Services We Provide
+            <h2 className="mb-4 text-3xl font-bold text-slate-900">
+              Simple Towing Process
             </h2>
-            <p className="font-body text-muted-foreground">
-              Our towing service supports both individual and business needs.
+            <p className="text-slate-600">
+              Clear communication from request to tow completion.
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
-            <div className="rounded-xl bg-white p-6 shadow-sm">
-              <Truck className="mb-4 h-10 w-10 text-accent" />
-              <h3 className="mb-3 text-xl font-heading font-bold text-foreground">
-                Local Towing
-              </h3>
-              <p className="text-sm font-body text-muted-foreground">
-                Fast towing support for drivers needing reliable service within the Milwaukee area.
-              </p>
-            </div>
-
-            <div className="rounded-xl bg-white p-6 shadow-sm">
-              <Building2 className="mb-4 h-10 w-10 text-accent" />
-              <h3 className="mb-3 text-xl font-heading font-bold text-foreground">
-                Business Support
-              </h3>
-              <p className="text-sm font-body text-muted-foreground">
-                Reliable towing support for repair shops, dealerships, and businesses.
-              </p>
-            </div>
-
-            <div className="rounded-xl bg-white p-6 shadow-sm">
-              <Shield className="mb-4 h-10 w-10 text-accent" />
-              <h3 className="mb-3 text-xl font-heading font-bold text-foreground">
-                Property & Vehicle Movement
-              </h3>
-              <p className="text-sm font-body text-muted-foreground">
-                Professional vehicle movement services for property managers and private needs.
-              </p>
-            </div>
+            {processSteps.map((step, index) => (
+              <div
+                key={step.title}
+                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+              >
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-accent text-sm font-bold text-white">
+                  {index + 1}
+                </div>
+                <h3 className="mb-3 text-lg font-bold text-slate-900">{step.title}</h3>
+                <p className="text-sm leading-6 text-slate-600">{step.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* COMMUNITY IMPACT */}
-      <section className="bg-background py-20">
-        <div className="container">
-          <div className="mx-auto max-w-3xl border-t border-white/10 pt-10">
-            <h3 className="text-lg font-bold uppercase tracking-wide text-white">
-              More Than a Service
-            </h3>
+      {/* COMMUNITY / WORKFORCE */}
+      <section className="bg-white py-20">
+        <div className="container max-w-4xl text-center">
+          <h2 className="mb-4 text-3xl font-bold text-slate-900">
+            More Than Towing — We’re Building Workforce
+          </h2>
+          <p className="text-base leading-7 text-slate-600">
+            JB Transportation & Towing is also building workforce pathways tied to transportation,
+            service work, and real employment opportunities. Clients who work with us are supporting
+            a company focused on both dependable service and long-term community impact through work.
+          </p>
 
-            <p className="mt-4 max-w-2xl leading-relaxed text-silver">
-              Our work also supports workforce reentry and training opportunities
-              within our community. By working with us, you are helping create
-              real pathways for individuals building a second chance through
-              employment and skill development.
-            </p>
-
-            <Link
-              to="/community"
-              className="inline-block mt-4 font-semibold text-accent hover:underline"
-            >
-              Learn About Our Community Initiative →
+          <div className="mt-8">
+            <Link to="/community">
+              <Button
+                variant="outline"
+                className="border-black px-6 py-4 text-black hover:bg-black hover:text-white"
+              >
+                Learn About Our Community Initiative
+              </Button>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section className="bg-primary py-24 text-center text-primary-foreground">
-        <div className="container max-w-3xl">
-          <h2 className="mb-4 text-3xl font-heading font-black md:text-4xl">
-            Need Towing Right Now?
+      {/* CTA */}
+      <section className="bg-accent py-20">
+        <div className="container text-center">
+          <h2 className="mb-4 text-3xl font-bold text-white">
+            Need Fast, Reliable Towing Support?
           </h2>
 
-          <p className="mb-8 text-lg font-body text-silver">
-            Call now for immediate assistance or request service online.
+          <p className="mx-auto mb-8 max-w-2xl text-base leading-7 text-white/90">
+            Whether you need one-time towing, overflow support, or a dependable local towing partner,
+            JB Transportation & Towing is ready to help.
           </p>
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a href="tel:4143063970">
-              <Button className="bg-accent px-10 py-6 text-lg font-heading font-bold text-accent-foreground hover:bg-accent/90">
-                Call Now
-              </Button>
-            </a>
-
             <Link to="/quote">
-              <Button
-                variant="outline"
-                className="border-white bg-transparent px-10 py-6 text-lg font-heading font-bold text-white hover:bg-white hover:text-black"
-              >
+              <Button className="bg-black px-10 py-6 text-base text-white">
                 Request Service
               </Button>
             </Link>
+
+            <a href="tel:4143063970">
+              <Button
+                variant="outline"
+                className="border-black bg-transparent px-10 py-6 text-base text-black hover:bg-black hover:text-white"
+              >
+                <Phone className="mr-2 h-5 w-5" />
+                Call 414-306-3970
+              </Button>
+            </a>
           </div>
         </div>
       </section>

@@ -15,6 +15,7 @@ import Courier from "./pages/Courier";
 import Transport from "./pages/Transport";
 import Towing from "./pages/Towing";
 import Community from "./pages/Community";
+import About from "./pages/About"; // ✅ NEW IMPORT
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,6 +38,10 @@ function App() {
             <Route path="/transport" element={<Transport />} />
             <Route path="/towing" element={<Towing />} />
             <Route path="/community" element={<Community />} />
+
+            {/* ✅ NEW ROUTE */}
+            <Route path="/about" element={<About />} />
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
