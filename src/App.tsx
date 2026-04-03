@@ -7,6 +7,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
+
 import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
@@ -45,6 +48,9 @@ function App() {
             <Route path="/work-with-us" element={<WorkWithUs />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+
+          <Analytics />
+          <SpeedInsights />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
