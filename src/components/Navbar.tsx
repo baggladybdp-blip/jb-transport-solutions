@@ -55,8 +55,8 @@ const Navbar = () => {
         </div>
 
         {/* DESKTOP RIGHT SIDE */}
-        <div className="hidden items-center gap-5 xl:flex">
-          <nav className="flex items-center gap-6 2xl:gap-8">
+        <div className="hidden items-center gap-6 xl:flex">
+          <nav className="flex items-center gap-8 2xl:gap-10">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.to;
 
@@ -64,7 +64,7 @@ const Navbar = () => {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`text-[12px] font-semibold uppercase tracking-[0.14em] transition-colors 2xl:text-[13px] ${
+                  className={`text-[13px] font-semibold uppercase tracking-[0.16em] transition-colors 2xl:text-[14px] ${
                     isActive ? "text-red-500" : "text-white hover:text-red-500"
                   }`}
                 >
@@ -74,7 +74,7 @@ const Navbar = () => {
             })}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <a
               href="https://www.facebook.com/share/1B1sBESGTK/?mibextid=wwXIfr"
               target="_blank"
@@ -97,7 +97,7 @@ const Navbar = () => {
           </div>
 
           <Link to="/quote">
-            <Button className="bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700 2xl:px-5">
+            <Button className="bg-red-600 px-5 py-2 text-sm font-semibold text-white hover:bg-red-700">
               <Phone className="mr-2 h-4 w-4" />
               414-306-3970
             </Button>
