@@ -15,7 +15,9 @@ import Courier from "./pages/Courier";
 import Transport from "./pages/Transport";
 import Towing from "./pages/Towing";
 import Community from "./pages/Community";
-import About from "./pages/About"; // ✅ NEW IMPORT
+import CommunityInterest from "./pages/CommunityInterest";
+import About from "./pages/About";
+import WorkWithUs from "./pages/WorkWithUs";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,10 +40,9 @@ function App() {
             <Route path="/transport" element={<Transport />} />
             <Route path="/towing" element={<Towing />} />
             <Route path="/community" element={<Community />} />
-
-            {/* ✅ NEW ROUTE */}
+            <Route path="/community-interest" element={<CommunityInterest />} />
             <Route path="/about" element={<About />} />
-
+            <Route path="/work-with-us" element={<WorkWithUs />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

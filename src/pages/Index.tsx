@@ -3,6 +3,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
+  ArrowRight,
   CheckCircle,
   Clock,
   MapPin,
@@ -29,16 +30,19 @@ const services = [
   {
     title: "Vehicle Transport",
     image: vehicleTransportImg,
+    href: "/transport",
     items: ["Dealer transfers", "Auction pickups", "Multi-car hauling"],
   },
   {
     title: "Self-Load Towing",
     image: towTruckImg,
+    href: "/towing",
     items: ["Fast response", "Local towing", "Business support"],
   },
   {
     title: "Courier Services",
     image: courierVanImg,
+    href: "/courier",
     items: ["Medical delivery", "Legal delivery", "Same-day routes"],
   },
 ];
@@ -77,34 +81,50 @@ const Index = () => {
         </div>
 
         <div className="container relative z-10 pt-24 pb-16 md:py-36">
-          <div className="max-w-2xl">
-            <h1 className="mb-5 text-3xl font-heading font-black leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+          <div className="max-w-3xl">
+            <p className="mb-3 inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-accent backdrop-blur-sm md:text-xs">
+              Milwaukee Area Transportation Support
+            </p>
+
+            <h1 className="mb-5 max-w-4xl text-3xl font-heading font-semibold leading-[1.05] tracking-[-0.01em] text-white sm:text-4xl md:text-5xl lg:text-[60px]">
               Reliable Transportation Built for Businesses That Need Support
             </h1>
 
-            <p className="mb-5 max-w-xl text-base leading-7 text-gray-300 md:text-lg">
+            <p className="mb-5 max-w-2xl text-base leading-7 text-gray-300 md:text-lg">
               Vehicle transport, towing, and courier services across Milwaukee and surrounding
               areas. Built for businesses that need dependable, responsive, and professional
               support.
             </p>
 
-            <p className="mb-7 text-xs font-semibold uppercase tracking-wide text-accent md:text-sm">
-              Start as Backup • Grow Into a Reliable Partner
-            </p>
+            <div className="mb-7 max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-wide text-accent md:text-base">
+                Competitive support for overflow, backup coverage, long-distance moves, and
+                harder-to-place jobs.
+              </p>
 
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <Link to="/quote" className="w-full sm:w-auto">
-                <Button className="w-full bg-accent px-6 py-5 text-base font-bold sm:w-auto sm:px-8 sm:py-6 sm:text-lg">
-                  Request a Quote
-                </Button>
-              </Link>
+              <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <Link to="/quote" className="w-full sm:w-auto">
+                  <Button className="w-full bg-accent px-6 py-5 text-base font-bold shadow-sm sm:w-auto sm:px-8 sm:py-6 sm:text-lg">
+                    Request a Quote <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
 
-              <a href="tel:4143063970" className="w-full sm:w-auto">
-                <Button className="w-full bg-white px-6 py-5 text-base text-black hover:bg-gray-100 sm:w-auto sm:px-8 sm:py-6">
-                  <Phone className="mr-2 h-5 w-5" />
-                  Call Now
-                </Button>
-              </a>
+                <a href="tel:4143063970" className="w-full sm:w-auto">
+                  <Button className="w-full bg-white px-6 py-5 text-base text-black hover:bg-gray-100 sm:w-auto sm:px-8 sm:py-6">
+                    <Phone className="mr-2 h-5 w-5" />
+                    Call Now
+                  </Button>
+                </a>
+
+                <a href="#competitive-option" className="w-full sm:w-auto">
+                  <Button
+                    variant="outline"
+                    className="w-full border-white bg-transparent px-6 py-5 text-base text-white hover:bg-white hover:text-black sm:w-auto sm:px-8 sm:py-6"
+                  >
+                    Read More
+                  </Button>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -137,9 +157,10 @@ const Index = () => {
 
           <div className="grid gap-6 md:grid-cols-3 md:gap-8 lg:gap-10">
             {services.map((service) => (
-              <div
+              <Link
                 key={service.title}
-                className="rounded-2xl bg-white p-4 shadow-md transition hover:shadow-xl md:p-6"
+                to={service.href}
+                className="group rounded-2xl bg-white p-4 shadow-md transition duration-200 hover:-translate-y-1 hover:shadow-xl md:p-6"
               >
                 <img
                   src={service.image}
@@ -147,9 +168,12 @@ const Index = () => {
                   className="mb-4 h-44 w-full rounded-xl object-cover md:mb-5 md:h-52"
                 />
 
-                <h3 className="mb-3 text-lg font-bold text-slate-900 md:mb-4 md:text-xl">
-                  {service.title}
-                </h3>
+                <div className="mb-3 flex items-center justify-between gap-3 md:mb-4">
+                  <h3 className="text-lg font-bold text-slate-900 md:text-xl">
+                    {service.title}
+                  </h3>
+                  <ArrowRight className="h-5 w-5 text-accent transition-transform group-hover:translate-x-1" />
+                </div>
 
                 <ul className="space-y-2">
                   {service.items.map((item) => (
@@ -159,7 +183,9 @@ const Index = () => {
                     </li>
                   ))}
                 </ul>
-              </div>
+
+                <p className="mt-4 text-sm font-semibold text-accent">Learn more</p>
+              </Link>
             ))}
           </div>
 
@@ -189,7 +215,7 @@ const Index = () => {
             {whyChoose.map((item) => (
               <div
                 key={item.title}
-                className="rounded-2xl border border-border bg-card p-5 shadow-sm hover:shadow-md md:p-6"
+                className="rounded-2xl border border-border bg-card p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md md:p-6"
               >
                 <item.icon className="mb-4 h-9 w-9 text-accent md:h-10 md:w-10" />
                 <h3 className="mb-2 text-base font-bold text-slate-900 md:mb-3 md:text-lg">
@@ -202,8 +228,27 @@ const Index = () => {
         </div>
       </section>
 
+      {/* COMPETITIVE OPTION / READ MORE TARGET */}
+      <section id="competitive-option" className="bg-gray-50 py-16 md:py-20">
+        <div className="container max-w-4xl text-center">
+          <h2 className="mb-3 text-2xl font-bold text-slate-900 md:mb-4 md:text-3xl">
+            A Competitive Option for Jobs Others May Not Want
+          </h2>
+          <p className="text-sm leading-7 text-muted-foreground md:text-base">
+            JB Transportation & Towing is built to support overflow work, backup coverage,
+            longer-distance transport, and practical service needs that do not always fit neatly
+            into another provider’s schedule or preferred job type.
+          </p>
+          <p className="mt-4 text-sm leading-7 text-muted-foreground md:text-base">
+            That makes JB a strong option for businesses looking for dependable support without
+            having to replace their current provider immediately. We can step in where needed,
+            handle the work professionally, and grow into a long-term relationship over time.
+          </p>
+        </div>
+      </section>
+
       {/* LOW RISK ENTRY */}
-      <section className="bg-gray-50 py-16 md:py-20">
+      <section className="bg-white py-16 md:py-20">
         <div className="container max-w-3xl text-center">
           <h2 className="mb-3 text-2xl font-bold text-slate-900 md:mb-4 md:text-3xl">
             Start Small. Scale With Confidence.
@@ -226,6 +271,14 @@ const Index = () => {
             training and employment pathways in the transportation industry. Businesses that work
             with us are also supporting real job opportunities and stronger communities.
           </p>
+
+          <div className="mt-7">
+            <Link to="/community">
+              <Button variant="outline" className="border-black text-black hover:bg-black hover:text-white">
+                Learn About Our Community Initiative
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 

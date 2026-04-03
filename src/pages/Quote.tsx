@@ -30,7 +30,7 @@ const Quote = () => {
         <section className="bg-background py-32">
           <div className="container max-w-lg rounded-2xl bg-white p-10 text-center shadow-md">
             <CheckCircle className="mx-auto mb-6 h-16 w-16 text-accent" />
-            <h1 className="mb-4 text-3xl font-heading font-black text-foreground">
+            <h1 className="mb-4 text-3xl font-heading font-semibold text-foreground">
               Request Sent
             </h1>
             <p className="text-lg font-body text-muted-foreground">
@@ -39,14 +39,14 @@ const Quote = () => {
             </p>
 
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <a href="/quote">
-                <Button variant="outline" className="font-bold">
-                  Submit Another Request
+              <a href="/work-with-us">
+                <Button variant="outline" className="font-semibold">
+                  Work With Us
                 </Button>
               </a>
 
               <a href="tel:4143063970">
-                <Button className="bg-accent px-8 py-6 text-base font-bold">
+                <Button className="bg-accent px-8 py-6 text-base font-semibold">
                   <Phone className="mr-2 h-5 w-5" />
                   Call 414-306-3970
                 </Button>
@@ -63,7 +63,7 @@ const Quote = () => {
       {/* HEADER */}
       <section className="section-dark py-20">
         <div className="container max-w-3xl text-center">
-          <h1 className="mb-4 text-4xl font-heading font-black md:text-5xl">
+          <h1 className="mb-4 text-4xl font-heading font-semibold md:text-5xl">
             Request a <span className="text-accent">Fast Quote</span>
           </h1>
 
@@ -97,7 +97,7 @@ const Quote = () => {
           <div className="grid gap-4 md:grid-cols-3">
             <div className="rounded-2xl border border-border bg-white p-5 shadow-sm">
               <Truck className="mb-3 h-8 w-8 text-accent" />
-              <h2 className="mb-2 text-lg font-bold text-foreground">
+              <h2 className="mb-2 text-lg font-semibold text-foreground">
                 Transport, Towing & Courier
               </h2>
               <p className="text-sm leading-6 text-muted-foreground">
@@ -108,7 +108,7 @@ const Quote = () => {
 
             <div className="rounded-2xl border border-border bg-white p-5 shadow-sm">
               <Clock className="mb-3 h-8 w-8 text-accent" />
-              <h2 className="mb-2 text-lg font-bold text-foreground">
+              <h2 className="mb-2 text-lg font-semibold text-foreground">
                 Built for Fast Follow-Up
               </h2>
               <p className="text-sm leading-6 text-muted-foreground">
@@ -119,7 +119,7 @@ const Quote = () => {
 
             <div className="rounded-2xl border border-border bg-white p-5 shadow-sm">
               <Shield className="mb-3 h-8 w-8 text-accent" />
-              <h2 className="mb-2 text-lg font-bold text-foreground">
+              <h2 className="mb-2 text-lg font-semibold text-foreground">
                 Business Inquiries Welcome
               </h2>
               <p className="text-sm leading-6 text-muted-foreground">
@@ -135,7 +135,7 @@ const Quote = () => {
       <section className="bg-background py-20">
         <div className="container max-w-2xl">
           <div className="mb-8 text-center">
-            <h2 className="mb-3 text-3xl font-heading font-black text-foreground">
+            <h2 className="mb-3 text-3xl font-heading font-semibold text-foreground">
               Tell Us About the Job
             </h2>
             <p className="text-muted-foreground">
@@ -250,7 +250,7 @@ const Quote = () => {
             <Button
               type="submit"
               size="lg"
-              className="w-full bg-accent py-6 text-lg font-heading font-bold"
+              className="w-full bg-accent py-6 text-lg font-heading font-semibold"
             >
               Submit Request
             </Button>
@@ -264,7 +264,7 @@ const Quote = () => {
             <a href="tel:4143063970">
               <Button
                 variant="outline"
-                className="gap-2 border-accent font-bold text-accent hover:bg-accent hover:text-white"
+                className="gap-2 border-accent font-semibold text-accent hover:bg-accent hover:text-white"
               >
                 <Phone className="h-4 w-4" />
                 Call 414-306-3970

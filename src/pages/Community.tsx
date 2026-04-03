@@ -50,14 +50,13 @@ export default function Community() {
     <Layout>
       <main className="bg-background pt-24 pb-16 md:pt-32 md:pb-20">
         <div className="container max-w-6xl">
-          {/* HERO */}
           <section className="rounded-3xl bg-primary px-6 py-10 text-white shadow-lg md:px-10 md:py-14">
             <div className="max-w-3xl">
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-accent md:text-sm">
                 Community Initiative
               </p>
 
-              <h1 className="text-3xl font-black leading-tight md:text-4xl lg:text-5xl">
+              <h1 className="text-3xl font-semibold leading-tight md:text-4xl lg:text-5xl">
                 Workforce Reentry with a Real Path Toward Work
               </h1>
 
@@ -76,7 +75,6 @@ export default function Community() {
             </div>
           </section>
 
-          {/* PILLARS */}
           <section className="mt-12 md:mt-16">
             <div className="mx-auto mb-8 max-w-2xl text-center md:mb-10">
               <h2 className="text-2xl font-bold text-white md:text-3xl">
@@ -104,7 +102,6 @@ export default function Community() {
             </div>
           </section>
 
-          {/* WHY IT MATTERS + HOW IT WORKS */}
           <section className="mt-12 grid gap-6 md:mt-16 md:grid-cols-2">
             <div className="rounded-2xl bg-white p-6 shadow-md md:p-8">
               <div className="mb-4 flex items-center gap-3">
@@ -149,7 +146,6 @@ export default function Community() {
             </div>
           </section>
 
-          {/* BUSINESS CONNECTION */}
           <section className="mt-12 rounded-3xl bg-white px-6 py-10 shadow-md md:mt-16 md:px-10 md:py-12">
             <div className="grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-start">
               <div>
@@ -191,7 +187,6 @@ export default function Community() {
             </div>
           </section>
 
-          {/* PARTNERSHIPS */}
           <section className="mt-12 md:mt-16">
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8">
               <h2 className="text-2xl font-bold text-white md:text-3xl">
@@ -212,22 +207,21 @@ export default function Community() {
             </div>
           </section>
 
-          {/* CTA */}
           <section className="mt-12 text-center md:mt-16">
             <h3 className="text-2xl font-bold text-white md:text-3xl">
-              Want to Be Part of This Initiative?
+              Want to Get Involved in the Initiative?
             </h3>
 
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-silver md:text-base">
-              Whether through business partnerships, collaboration, training
-              support, or service relationships, there are multiple ways to get
-              involved.
+              Whether you represent an organization, employer, training partner,
+              or community effort, there are multiple ways to support and engage
+              with this initiative.
             </p>
 
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Link to="/quote" className="w-full sm:w-auto">
-                <Button className="w-full bg-accent px-8 py-5 text-base font-bold text-white hover:bg-accent/90 sm:w-auto">
-                  Work With Us <ArrowRight className="ml-2 h-4 w-4" />
+              <Link to="/community-interest" className="w-full sm:w-auto">
+                <Button className="w-full bg-accent px-8 py-5 text-base font-semibold text-white hover:bg-accent/90 sm:w-auto">
+                  Get Involved <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
 
