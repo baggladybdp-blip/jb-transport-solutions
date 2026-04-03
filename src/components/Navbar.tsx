@@ -20,36 +20,34 @@ const Navbar = () => {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-black">
-      <div className="container flex h-20 items-center justify-between md:h-24">
+      <div className="container flex h-20 items-center justify-between xl:h-24">
         {/* LEFT: BRAND UNIT */}
         <div className="flex min-w-0 items-center">
           <Link
             to="/"
-            className="ml-0 flex items-center"
+            className="flex min-w-0 items-center"
             onClick={() => setOpen(false)}
           >
             <img
               src={logo}
               alt="JB Logo"
-              className="h-20 w-auto shrink-0 object-contain md:h-24"
+              className="h-20 w-auto shrink-0 object-contain xl:h-24"
             />
 
-            {/* TEXT LOCKUP */}
-            <div className="-ml-[22px] flex flex-col items-center leading-none md:-ml-[26px]">
-              <div className="text-[17px] font-semibold tracking-wide text-white md:text-[18px]">
+            <div className="-ml-[22px] flex min-w-0 flex-col items-center leading-none md:-ml-[26px]">
+              <div className="text-sm font-semibold tracking-wide text-white sm:text-base xl:text-[18px]">
                 Transportation
               </div>
 
-              {/* CENTER LINE + RED SIDE LINES */}
-              <div className="mt-0.5 flex items-center justify-center gap-2 md:gap-3">
-                <span className="h-[2px] w-14 bg-red-600 md:w-16" />
-                <span className="text-[17px] font-semibold tracking-wide text-white md:text-[18px]">
+              <div className="mt-0.5 flex items-center justify-center gap-2 xl:gap-3">
+                <span className="h-[2px] w-10 bg-red-600 sm:w-12 xl:w-16" />
+                <span className="text-sm font-semibold tracking-wide text-white sm:text-base xl:text-[18px]">
                   &amp; Towing
                 </span>
-                <span className="h-[2px] w-14 bg-red-600 md:w-16" />
+                <span className="h-[2px] w-10 bg-red-600 sm:w-12 xl:w-16" />
               </div>
 
-              <div className="mt-1 text-center text-[10px] tracking-[0.22em] text-gray-400 md:text-[11px]">
+              <div className="mt-1 text-center text-[9px] tracking-[0.18em] text-gray-400 sm:text-[10px] xl:text-[11px] xl:tracking-[0.22em]">
                 TRANSPORT • TOWING • COURIER
               </div>
             </div>
@@ -57,8 +55,8 @@ const Navbar = () => {
         </div>
 
         {/* DESKTOP RIGHT SIDE */}
-        <div className="hidden items-center gap-6 md:flex">
-          <nav className="flex items-center gap-8">
+        <div className="hidden items-center gap-5 xl:flex">
+          <nav className="flex items-center gap-6 2xl:gap-8">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.to;
 
@@ -66,7 +64,7 @@ const Navbar = () => {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`text-[13px] font-semibold uppercase tracking-[0.16em] transition-colors ${
+                  className={`text-[12px] font-semibold uppercase tracking-[0.14em] transition-colors 2xl:text-[13px] ${
                     isActive ? "text-red-500" : "text-white hover:text-red-500"
                   }`}
                 >
@@ -76,7 +74,7 @@ const Navbar = () => {
             })}
           </nav>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <a
               href="https://www.facebook.com/share/1B1sBESGTK/?mibextid=wwXIfr"
               target="_blank"
@@ -99,27 +97,27 @@ const Navbar = () => {
           </div>
 
           <Link to="/quote">
-            <Button className="bg-red-600 px-5 py-2 text-sm font-semibold text-white hover:bg-red-700">
+            <Button className="bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700 2xl:px-5">
               <Phone className="mr-2 h-4 w-4" />
               414-306-3970
             </Button>
           </Link>
         </div>
 
-        {/* MOBILE MENU BUTTON */}
+        {/* MOBILE / TABLET MENU BUTTON */}
         <button
           type="button"
-          className="text-white md:hidden"
+          className="ml-4 text-white xl:hidden"
           onClick={() => setOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {open ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
         </button>
       </div>
 
-      {/* MOBILE MENU */}
+      {/* MOBILE / TABLET MENU */}
       {open && (
-        <div className="border-t border-white/10 bg-black md:hidden">
+        <div className="border-t border-white/10 bg-black xl:hidden">
           <nav className="container flex flex-col gap-4 py-5 text-center">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.to;
